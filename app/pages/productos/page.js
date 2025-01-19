@@ -1,30 +1,26 @@
 'use client'
 
 import { products } from "../../mock/mock";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useProductFilter } from "../../context/filteredProducts";
+
 
 
 export default function Productos() {
 
-    const [filteredProducts, setFilteredProducts] = useState([]);
-    const [selectedCategory, setSelectedCategory] = useState("");
-
-    useEffect(() => {
-        setFilteredProducts(products);
-    }, []);
-
-    const handleFilter = () => {
-        if(selectedCategory){
-            const filtered = producto => producto.filter(product => product.category === selectedCategory)
-            setFilteredProducts(filtered);
-        } else {
-            setFilteredProducts(products);
-        }
-    }
     const handleAddToCart = (product) => {
 
         console.log(`${product.name} added to cart!`);
     };
+
+
+    const { selectedCategory } = useProductFilter();
+
+    // Filtras los productos por categoría si existe una seleccionada
+    const filteredProducts = selectedCategory
+    ? products.filter((product) => product.category === selectedCategory)
+    : products;
+    
     
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">

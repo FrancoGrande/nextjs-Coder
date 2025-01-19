@@ -1,6 +1,6 @@
 'use client'
 
-import {products} from '../mock/products';
+import { products } from "../mock/mock";
 import { useState, useEffect } from 'react';
 
 

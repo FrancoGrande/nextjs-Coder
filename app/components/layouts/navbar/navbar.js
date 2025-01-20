@@ -10,7 +10,7 @@ import RightMenu from './rightMenu';
 const navbar = () => {
     return (
         <>  
-            <header className='bg-gray-800 shadow-md'>
+            <header className='bg-gray-800 shadow-lg'>
             <nav className='container mx-auto px-4 py-2 flex items-center justify-between'>
                 <div className="flex items-center justify-between">
                     <Link href={"/"} ><Image 

@@ -1,14 +1,15 @@
-
+"use client"
 import React from 'react'
-import Link from 'next/link'
-import { useProductFilter } from '../../../context/filteredProducts'
+import { getProductsByCategory, fetchProducts } from '../../../context/listaProductos';
+import { useEffect, useState } from 'react';
+import { useProducts } from '../../../context/productContext';
 
 
 const menuList = () => {
 
-    const { setSelectedCategory } = useProductFilter();
+    const { setSelectedCategory } = useProducts();
 
-    function handleCategoryClick(category) {
+    const handleCategoryClick = (category) => {
         setSelectedCategory(category);
     }
 

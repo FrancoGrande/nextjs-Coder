@@ -1,7 +1,5 @@
 "use client"
 import React from 'react'
-import { getProductsByCategory, fetchProducts } from '../../../context/listaProductos';
-import { useEffect, useState } from 'react';
 import { useProducts } from '../../../context/productContext';
 
 

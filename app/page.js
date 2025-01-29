@@ -11,7 +11,7 @@ export default function Home() {
 
   const updateSlugs = async () => {
     try {
-        const response = await fetch("/api/updateSlug/route", {
+        const response = await fetch("/api/updateSlug", {
             method: "PUT",
         });
         const data = await response.json();

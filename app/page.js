@@ -30,10 +30,10 @@ export default function Home() {
   return (
     
     <>
-    <Navbar />
+    {/* <Navbar /> */}
     <Productos />
     {/* <button onClick={updateSlugs}>Actualizar Slugs</button>; */}
-    <Footer />
+    {/* <Footer /> */}
     </>
   );
 }

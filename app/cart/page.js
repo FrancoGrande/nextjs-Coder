@@ -1,6 +1,8 @@
 "use client";
 
 import { useCart } from "../context/cartContext";
+import Image from "next/image";
+
 
 const CartPage = () => {
     const { cart, getTotalPrice, removeFromCart } = useCart();
@@ -19,9 +21,14 @@ const CartPage = () => {
                                 className="flex items-center space-x-4 space-between mb-8"
                             >
                                 <div className="flex items-center space-x-8 space-between mb-8 p-4 ">
-                                <div className="bg-gray-200 border-2 border-dashed rounded-xl w-16 h-16">
-                                {/* asd */}
-                                </div>
+                                <div className="relative w-16 h-16 border border-dashed rounded-xl overflow-hidden">
+                                    <Image
+                                        src={item.img}
+                                        alt={item.title}
+                                        layout="fill" // Hace que la imagen se ajuste al contenedor
+                                        objectFit="cover" // Ajusta la imagen para que se recorte proporcionalmente
+                                        />
+                                    </div>
                                 <div class >
                                     <h2 className="text-lg font-bold text-black" >{item.title}</h2>
                                     <p className="text-black">Cantidad: {item.quantity}</p>

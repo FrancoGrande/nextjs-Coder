@@ -52,6 +52,8 @@ export async function PUT(req) {
             await updateDoc(productRef, { slug });
 
             return { id: docSnapshot.id, slug };
+
+
         });
 
         await Promise.all(updates); // Esperar todas las actualizaciones

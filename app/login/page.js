@@ -1,9 +1,10 @@
 "use client"
 import React,{ useState, useContext } from 'react'
 import { useRouter } from 'next/navigation'
-import { AuthContext } from '../context/authContext'
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { AuthContext  } from '../context/authContext'
+import { signInWithPopup } from "firebase/auth";
 import { auth } from "../context/config-firebase";
+
 
 
 const logIn = () => {
@@ -11,38 +12,30 @@ const logIn = () => {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { setUser } = useContext(AuthContext);
+    const { setUser, googleLogin, registerUser, loginUser } = useContext(AuthContext);
+
+
+    const handlSubmitGoogle = async (e) => {
+        e.preventDefault();
+        const userCredencial = await signInWithPopup(auth, email, uid);
+        await googleLogin(userCredencial);
+    }
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        
-
-        if(!email || !password) {
-            alert("Por favor, completa todos los campos.");
-            router.push("/login");
-            return;
-        }
-
-
-        try { 
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-
-            setUser(userCredential.user);
-
-            console.log("Iniciando sesión con:", { email, password });
+        try {
+            await loginUser(email, password);
+            alert
             router.push("/");
-            alert("Inicio de sesión exitoso!");
-
-
         } catch (error) {
-            console.error("Error al iniciar sesión:", error);
-            alert("Error al iniciar sesión. Por favor, verifica tus credenciales.");
+            console.log(error.message);
         }
-
-
-
     };
+
+
         
     return (
             <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -87,6 +80,12 @@ const logIn = () => {
                 >
                 Iniciar Sesión
                 </button>
+                <button
+                type="submit" onClick={googleLogin}
+                className="w-full bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+                >
+                Iniciar Sesión con Google
+                </button>
             </form>
             
             <p className="text-center text-sm text-gray-500 mt-4">
@@ -98,6 +97,6 @@ const logIn = () => {
             </div>
         </div>
     )
-}
+}   
 
-export default logIn
+export default logIn;

@@ -7,9 +7,7 @@ import { AuthContext } from '../context/authContext'
 const register = () => {
 
     const {registerUser} = useContext(AuthContext);
-    // const [email, setEmail] = useState("");
-    // const [password, setPassword] = useState("");
-    // const [userName, setUserName] = useState("");
+
     const [form, setForm] = useState({
         email: "",
         password: "", 

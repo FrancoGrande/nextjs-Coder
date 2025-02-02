@@ -2,8 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image';
-import MenuList from './menuList';
-import Menu from './menu';
+
+
 import Link from 'next/link';
 import RightMenu from './rightMenu';
 
@@ -19,7 +19,6 @@ const navbar = () => {
                     width={100} height={24}
                     /></Link>
                 </div>
-                <Menu />
                 <RightMenu />
             </nav>
             </header>

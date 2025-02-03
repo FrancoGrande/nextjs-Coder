@@ -3,6 +3,9 @@
 import { useCart } from "../context/cartContext";
 import Image from "next/image";
 
+import Link from "next/link";
+
+
 
 const CartPage = () => {
     const { cart, getTotalPrice, removeFromCart } = useCart();
@@ -52,9 +55,9 @@ const CartPage = () => {
                         <h2 className="text-xl font-bold">
                             Total: ${getTotalPrice()}
                         </h2>
-                        <button className="bg-green-500 text-white py-2 px-4 rounded mt-4">
+                        <Link href={`/checkout`} className="bg-green-500 text-white py-2 px-4 rounded mt-4">
                             Proceder al pago
-                        </button>
+                        </Link>
                     </div>
                 </div>
             )}

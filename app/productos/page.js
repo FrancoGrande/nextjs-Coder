@@ -68,7 +68,7 @@ return (
                 alt={banner.alt}
                 width={1280}
                 height={400}
-                className={`absolute h-full  w-full transition-transform duration-700 ease-in-out ${animationClass}`}
+                className={`absolute h-full  w-full px-40 transition-transform duration-700 ease-in-out ${animationClass}`}
                 />
             );
         })}
@@ -85,7 +85,7 @@ return (
         </div>
 
         {/* lista de categorias en en barra lateral izquieda */}
-            <div className="flex justify-center pt-10 items-start py-8">
+            <div className="flex justify-center py-10 items-start">
                 <div className="grid grid-cols-2 gap-4 bg-white p-6 w-80 rounded-lg shadow-lg">
                     <button onClick={() => handleCategoryClick(null)} className="hover:bg-blue-500 bg-gray-800 hover:bg-blue-500 py-2 px-4 rounded-lg font-normal hover:font-bold text-2xl hover:font-semibold"><i className="fab fa-facebook"></i>Todos</button>
                     <button onClick={() => handleCategoryClick('samsung')} className=" hover:bg-blue-500 bg-gray-800 hover:bg-blue-500 py-2 px-4 rounded-lg font-normal hover:font-bold text-2xl hover:font-semibold"><i className="fab fa-facebook"></i>Samsung</button>
@@ -99,10 +99,10 @@ return (
         {/* lista de productos mapeando base de datos */}
                 <div className="md:grid-flow-col	 lg:flex items-center justify-center space-x-10">
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 ">
                 {
                     filteredProducts.map((product) => (
-                            <div key={product.slug} className="bg-white border border-gray-300 rounded-lg shadow-lg p-4 w-80">
+                            <div key={product.slug} className="bg-white border border-gray-300 rounded-lg shadow-lg p-10 w-80">
                                 <img src={product.img} alt={product.title} className="w-100 h-80 object-fit rounded-md mb-4 " />
                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{product.title}</h3>
                                 <p className="text-xl text-gray-800 mb-2 pb-4">${product.price}</p>

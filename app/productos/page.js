@@ -21,6 +21,7 @@ const ProductsPage = () => {
     const banners = [
         {src: "/banners/tztefan-d.jpg", alt: "zteFan", bgColor: "bg-[#6CB4E4]"},
         {src: "/banners/tclweek-D.jpg", alt: "tclWeek", bgColor: "bg-[#000000]"},
+        // {src: "/banners/tuentitime.jpg", alt: "tuenti time", bgColor: "bg-[#6CB4E4]"},
     ]
 
     const [ currentIndex, setCurrentIndex ] = useState(0);

@@ -6,6 +6,7 @@ import Navbar from "./components/layouts/navbar/navbar";
 import Footer from "./components/layouts/footer/footer";
 import { AuthProvider } from "./context/authContext";
 
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

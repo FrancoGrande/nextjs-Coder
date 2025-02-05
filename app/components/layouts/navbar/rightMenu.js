@@ -13,7 +13,7 @@ const RightMenu = () => {
         <Link href="/login" className=" font-normal hover:font-regular text-2xl font-regular"><i className="fab fa-youtube"></i>Ingresar</Link>
         <Link href="/register" className=" font-normal hover:font-bold text-2xl font-regular"><i className="fab fa-youtube "></i>Registrarse</Link>
         <Link href="/cart">
-        <a className='  text-2xl '>🛒</a> ({cart.length})
+        <Link href="/cart" className="text-2xl">🛒 ({cart.length})</Link>
             </Link>
     </div>
   )

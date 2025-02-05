@@ -1,14 +1,6 @@
 import React from 'react'
+import Link from 'next/link'
 
-/*************  ✨ Codeium Command ⭐  *************/
-/**
- * Footer component that displays various sections with information and links.
- * Sections include "Our Mission", "Solutions", "Support", "Company", and "Legal".
- * Each section contains relevant links and information styled with Tailwind CSS classes.
- * The footer also includes social media icons and a copyright notice.
- */
-
-/******  74fbce80-645e-4d48-9b86-b66303d0b498  *******/
 const footer = () => {
     return (
         <>
@@ -19,10 +11,10 @@ const footer = () => {
             <h3 className="text-lg font-semibold mb-4">Our Mission</h3>
             <p className="text-gray-400 mb-4">Making the world a better place through constructing elegant hierarchies.</p>
             <div className="flex space-x-4">
-            <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-facebook"></i>🌐</a>
-            <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i>📷</a>
-            <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-github"></i>💻</a>
-            <a href="#" className="text-gray-400 hover:text-white"><i className="fab fa-youtube"></i>▶</a>
+            <Link href="#" className="text-gray-400 hover:text-white"><i className="fab fa-facebook"></i>🌐</Link>
+            <Link href="#" className="text-gray-400 hover:text-white"><i className="fab fa-instagram"></i>📷</Link>
+            <Link href="#" className="text-gray-400 hover:text-white"><i className="fab fa-github"></i>💻</Link>
+            <Link href="#" className="text-gray-400 hover:text-white"><i className="fab fa-youtube"></i>▶</Link>
             </div>
         </div>
 
@@ -30,11 +22,11 @@ const footer = () => {
         <div>
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Marketing</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Analytics</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Automation</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Commerce</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block">Insights</a></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Marketing</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Analytics</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Automation</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Commerce</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block">Insights</Link></li>
             </ul>
         </div>
 
@@ -42,9 +34,9 @@ const footer = () => {
         <div>
             <h3 className="text-lg font-semibold mb-4">Support</h3>
             <ul>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Submit Ticket</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Documentation</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block">Guides</a></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Submit Ticket</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Documentation</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block">Guides</Link></li>
             </ul>
         </div>
 
@@ -52,10 +44,10 @@ const footer = () => {
         <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">About</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Blog</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Jobs</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block">Press</a></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">About</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Blog</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Jobs</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block">Press</Link></li>
             </ul>
         </div>
 
@@ -63,9 +55,9 @@ const footer = () => {
         <div>
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Terms of Service</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block mb-2">Privacy Policy</a></li>
-            <li><a href="#" className="text-gray-400 hover:text-white block">License</a></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Terms of Service</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block mb-2">Privacy Policy</Link></li>
+            <li><Link href="#" className="text-gray-400 hover:text-white block">License</Link></li>
             </ul>
         </div>
         </div>

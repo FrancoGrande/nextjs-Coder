@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { CheckoutContext } from "../../context/checkoutContext";
 
 
 
@@ -9,9 +11,15 @@ import { useRouter } from "next/navigation";
 const PaymentPage = () => {
 
     const router = useRouter();
+    const { checkoutData, updateCheckoutData } = useContext(CheckoutContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        updateCheckoutData("paymentData", data);
+
+        
         router.push("/checkout/summary");
     };
 
@@ -33,6 +41,7 @@ const PaymentPage = () => {
             placeholder="Número de tarjeta"
             className="col-span-4 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.paymentData?.tarjeta || ''}
             maxLength={16} // Límite típico para números de tarjeta
         />
 
@@ -42,6 +51,7 @@ const PaymentPage = () => {
             placeholder="Nombre del titular"
             className="col-span-4 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.paymentData?.nombreTitularTarjeta || ''}
         />
 
         {/* Fecha de expiración y CVV */}
@@ -50,12 +60,14 @@ const PaymentPage = () => {
             placeholder="Fecha de expiración"
             className="col-span-2 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.paymentData?.fechaExpiracion || ''}
         />
         <input
             type="text"
             placeholder="CVV"
             className="col-span-2 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.paymentData?.cvv || ''}
             maxLength={4}
         />
         </div>

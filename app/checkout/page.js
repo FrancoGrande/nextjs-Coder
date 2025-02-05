@@ -3,18 +3,27 @@
 
 
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { CheckoutContext } from "../context/checkoutContext";
+
 
 
 
 export default function PersonalData() {
 
 
+  const {checkoutData,updateCheckoutData} = useContext(CheckoutContext);
   const router = useRouter();
 
   
 
     const handleSubmit = (e) => {
       e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      updateCheckoutData("personalInfo", data);
+      console.log('datos personales', data)
       router.push("/checkout/shipping");
     };
   
@@ -36,7 +45,8 @@ export default function PersonalData() {
             type="email"
             placeholder="Correo electrónico"
             className="col-span-4 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required 
+            required
+            defaultValue={checkoutData.personalData?.nombre || ''} 
           />
 
           {/* Nombre y Apellido */}
@@ -44,13 +54,13 @@ export default function PersonalData() {
             type="text"
             placeholder="Nombre"
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.nombre} 
           />
           <input
             type="text"
             placeholder="Apellido"
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.apellido}
           />
 
           {/* DNI y Sexo */}
@@ -58,11 +68,11 @@ export default function PersonalData() {
             type="text"
             placeholder="Número de DNI"
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.dni}
           />
           <select
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.genero}
           >
             <option value="" disabled selected>
               Seleccionar sexo
@@ -77,13 +87,13 @@ export default function PersonalData() {
             type="date"
             placeholder="Fecha de nacimiento"
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.fechaNacimiento}
           />
           <input
             type="text"
             placeholder="Número de celular"
             className="col-span-2 border-2 border-gray-300 p-3 rounded-lg text-black"
-            required
+            required defaultValue={checkoutData.personalData?.nCelular}
           />
         </div>
 

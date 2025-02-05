@@ -5,22 +5,30 @@ export const CheckoutContext = createContext();
 
 export const CheckoutProvider = ({children}) => {
 
-    const [ currentStep, setCurrentStep ] = useState(1);
 
-    const [personalInfo, setPersonalInfo] = useState({});
-    const [shippingData, setShippingData] = useState({});
-    const [paymentData, setPaymentData] = useState({});
+
+    const [checkoutData, setCheckoutData] = useState({
+        personalInfo: {},
+        shippingData: {},
+        paymentData: {}
+    });
+
+
+    const updateCheckoutData = (key, data) => {
+        setCheckoutData((prev) => ({
+        ...prev,
+        [key]: data,
+        }));
+    };
+
+
 
     return (
-        <CheckoutContext.Provider value={{        currentStep,
-            setCurrentStep,
-            personalInfo,
-            setPersonalInfo,
-            shippingData,
-            setShippingData,
-            paymentData,
-            setPaymentData
-        }}>
+        <CheckoutContext.Provider value={{ 
+            checkoutData, 
+            updateCheckoutData,
+        }}
+    >
             {children}
         </CheckoutContext.Provider>
     )

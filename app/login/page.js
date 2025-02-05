@@ -4,6 +4,9 @@ import { useRouter } from 'next/navigation'
 import { AuthContext  } from '../context/authContext'
 import { signInWithPopup } from "firebase/auth";
 import { auth } from "../context/config-firebase";
+import Link from 'next/link';
+
+
 
 
 
@@ -90,9 +93,9 @@ const logIn = () => {
             
             <p className="text-center text-sm text-gray-500 mt-4">
                 ¿No tienes cuenta?{" "}
-                <a href="/register" className="text-blue-500 hover:underline">
+                <Link href="/register" className="text-blue-500 hover:underline">
                 Regístrate aquí
-                </a>
+                </Link>
             </p>
             </div>
         </div>

@@ -1,13 +1,19 @@
 'use client'
 
 import { useRouter } from "next/navigation";
+import { useContext } from "react";
+import { CheckoutContext } from "../../context/checkoutContext";
 import React from "react";
 
 const ShippingPage = () => {
     const router = useRouter();
+    const { checkoutData, updateCheckoutData } = useContext(CheckoutContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        const formData = new FormData(e.target);
+        const data = Object.fromEntries(formData);
+        updateCheckoutData("shippingData", data);
         router.push("/checkout/payment");
     };
     
@@ -27,6 +33,7 @@ return (
         <select
             className="col-span-4 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.shippingData?.provincia || ''}
         >
             <option value="" disabled selected>Seleccionar provincia</option>
             <option value="buenos-aires">Buenos Aires</option>
@@ -39,6 +46,7 @@ return (
         <select
             className="col-span-4 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.shippingData?.ciudad || ''}
         >
             <option value="" disabled selected>Seleccionar localidad</option>
             <option value="trelew">Trelew</option>
@@ -52,6 +60,7 @@ return (
             placeholder="Calle"
             className="col-span-4 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.shippingData?.calle || ''}
         />
 
         {/* Altura y Código postal */}
@@ -60,12 +69,14 @@ return (
             placeholder="Altura"
             className="col-span-2 border-4 border-gray-300 p-3 rounded-l text-black"
             required
+            defaultValue={checkoutData.shippingData?.altura || ''}
         />
         <input
             type="text"
             placeholder="Código postal"
             className="col-span-2 border-4 border-gray-300 p-3 rounded-lg text-black"
             required
+            defaultValue={checkoutData.shippingData?.CodPostal || ''}
         />
         </div>
 

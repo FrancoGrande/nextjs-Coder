@@ -56,7 +56,7 @@ const CartPage = () => {
                         ))}
                     </ul>
                     <div className="mt-4">
-                        <h2 className="text-xl font-bold">
+                        <h2 className="text-xl font-bold text-black">
                             Total: ${getTotalPrice()}
                         </h2>
                         <button

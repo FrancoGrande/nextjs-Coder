@@ -31,7 +31,7 @@ const ProductPage = () => {
 
     return (
         <div className="flex justify-center">
-            <div className="flex flex-col md:flex-row items-center  min-h-screen bg-white p-4 w-4/5 box-border">
+            <div className="flex md:flex-row items-center justify-center min-h-screen bg-white p-20 w-4/5 box-border">
                 <div className=" md:w-1/2 p-4">
                     <img
                         src={product.img}

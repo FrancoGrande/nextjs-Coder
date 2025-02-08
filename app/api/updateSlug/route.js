@@ -1,4 +1,4 @@
-import {NextResponsse} from "next/server";
+import {NextResponse} from "next/server";
 import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import { db } from "../../context/config-firebase";
 
